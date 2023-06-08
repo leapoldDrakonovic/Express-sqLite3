@@ -1,0 +1,54 @@
+/* Connections */
+/* reset */
+@import url(./reset.css);
+/* variables */
+@import url(./_variables.css);
+/* header */
+@import url(./header.css);
+/* modal */
+@import url(./modal.css);
+/* main page */
+@import url(./mainPage.css);
+
+
+
+
+
+
+
+
+/* UI Elements */
+
+/* Buttons */
+.blue-btn {
+  color: #fff;
+  background-color: rgba(1, 32, 238, 0.742);
+  border: 0.1px solid rgba(1, 32, 238, 0.742);
+
+  transition: .2s linear;
+}
+
+.blue-btn:hover {
+  color: rgba(1, 32, 238, 0.742);
+  background-color: #fff;
+
+
+}
+
+
+.red-btn {
+  color: #fff;
+  background-color: rgba(149, 0, 0, 0.742);
+  border: .1px solid rgba(149, 0, 0, 0.742);
+
+  transition: .2s linear;
+}
+
+.red-btn:hover {
+  color: rgba(149, 0, 0, 0.742);
+  background-color: #fff;
+
+
+}
+
+

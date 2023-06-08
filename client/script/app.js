@@ -1,22 +1,32 @@
 
 window.onload = getCards()
 
+
 async function getCards() {
+    
     const content = document.querySelector('.post-content')
+    const renderCard = (i) => {
+        return `
+        <div class="post">
+            <div class="post-title">${i.theme}</div>
+            <div class="post-dsc">${i.dsc}</div>
+            <div class="post-count">Date: ${i.date}</div>
+        </div>
+        `
+    }
+    
+    
+    const renderCards = (list) => {
+        const cardList = list.reduce((acc, elem) => acc + renderCard(elem), '');
+        content.innerHTML = cardList;
+    }
+
+
         try {
             await fetch ('http://localhost:5000/api/cards', {method: 'GET'})
                     .then(row=>row.json())
                     .then(data => {
-                        content.innerHTML = data.data.map(i=> 
-                            
-                            `<div class="post">
-                                <div class="post-title">${i.theme}</div>
-                                <div class="post-dsc">${i.dsc}</div>
-                                <div class="post-count">Date: ${i.date}</div>
-                            </div>
-                            `
-                        )
-
+                        renderCards(data.data)
                     })                                          
         } catch (error) {
             console.log(error);
@@ -124,4 +134,6 @@ async function deletePosts () {
 
     
 }
+
+
 

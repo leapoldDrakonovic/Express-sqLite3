@@ -1,0 +1,27 @@
+/* Header */
+.header {
+    height: 50px;
+    padding: 10px;
+  }
+  
+  .header-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    
+  }
+  
+  
+  #loginBtn {
+    margin-right: 30px;
+  }
+  
+  #post-add {
+    margin-right: 10px;
+  }
+  .logo{
+    margin-right: auto;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  /* End header */
