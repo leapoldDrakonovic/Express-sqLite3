@@ -1,19 +1,24 @@
 // Main consts
 const express = require ('express')
 const app = express()   
+require('dotenv').config()
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const bodyParser = require('body-parser')
 const router = require ('./router/router.js')
 
+
 // Ways to files
-const static = path.join(__dirname, 'client')
+const static = path.join(__dirname, '/client')
+const css = path.join(__dirname, 'client', 'style')
+
 const main_page = path.join(__dirname, 'client', 'index.html')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(static))
+app.use(express.static(css))
 
 // ROUTES
 

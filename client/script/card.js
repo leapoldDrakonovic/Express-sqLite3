@@ -1,6 +1,6 @@
 class BlogCard {
 
-    const renderCard = (i) => {
+    renderCard = (i) => {
         return `
         <div class="post">
             <div class="post-title">${i.theme}</div>
@@ -11,8 +11,10 @@ class BlogCard {
     }
     
     
-    const renderCards = (list) => {
+    renderCards = (list) => {
         const cardList = list.reduce((acc, elem) => acc + renderCard(elem), '');
         content.innerHTML = cardList;
     }
 }
+
+

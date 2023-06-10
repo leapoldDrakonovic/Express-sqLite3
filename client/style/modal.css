@@ -25,6 +25,12 @@
     border-radius: 15px;
     width: 100%;
   }
+
+  .modal-input:focus {
+    border: 1px solid green;
+    background-color: rgba(186, 186, 229, 0.495);
+  }
+
   .modal #text-input {
     height: 70px;
   }
@@ -32,6 +38,17 @@
     word-wrap: break-word;
     word-break: break-all;
   }/*# sourceMappingURL=style.css.map */
+
+  .modal-form>textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: rgb(244, 244, 244);
+  }
+
+  .modal-form>textarea:focus {
+    border: 1px solid green;
+  }
   
   /* End MODAL */
   
