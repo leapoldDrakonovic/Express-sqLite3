@@ -2,14 +2,14 @@ const authBtn = document.querySelector('#authorization-btn')
 const loginInp = document.querySelector('#login-inp')
 const passInp = document.querySelector('#pass-inp')
 
-let winS = 'reg'
+let winS = 'log'
 
 if (winS === 'log') {
     authBtn.innerHTML = 'Login'
-    // authBtn.addEventListener('click', sendLogin)
+    authBtn.addEventListener('click', sendLogin)
 } else if (winS === 'reg') {
     authBtn.innerHTML = 'Registration'
-    // authBtn.addEventListener('click', sendRegistation)
+    authBtn.addEventListener('click', sendRegistation)
 }
 
 
@@ -17,7 +17,7 @@ if (winS === 'log') {
 
 
 
-async function sendLogin () {
+async function sendLogin (req,res) {
     try {
         await fetch ('http://localhost:5000/api/auth/login', {
             method: 'POST',
@@ -34,6 +34,7 @@ async function sendLogin () {
         })
         loginInp.value = '' 
         passInp.value = ''
+        console.log(JSON.parse(req.body));
     } catch (error) {
         console.log(error);
     }
