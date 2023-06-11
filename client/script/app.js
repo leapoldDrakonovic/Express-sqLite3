@@ -1,22 +1,33 @@
 
+
 window.onload = getCards()
 
+
 async function getCards() {
+    
     const content = document.querySelector('.post-content')
+    const renderCard = (i) => {
+        return `
+        <div class="post">
+            <div class="post-title">${i.theme}</div>
+            <div class="post-dsc">${i.dsc}</div>
+            <div class="post-count">Date: ${i.date}</div>
+        </div>
+        `
+    }
+    
+    
+    const renderCards = (list) => {
+        const cardList = list.reduce((acc, elem) => acc + renderCard(elem), '');
+        content.innerHTML = cardList;
+    }
+
+
         try {
             await fetch ('http://localhost:5000/api/cards', {method: 'GET'})
                     .then(row=>row.json())
                     .then(data => {
-                        content.innerHTML = data.data.map(i=> 
-                            
-                            `<div class="post">
-                                <div class="post-title">${i.theme}</div>
-                                <div class="post-dsc">${i.dsc}</div>
-                                <div class="post-count">Date: ${i.date}</div>
-                            </div>
-                            `
-                        )
-
+                        renderCards(data.data)
                     })                                          
         } catch (error) {
             console.log(error);
@@ -47,7 +58,7 @@ function showAddModal () {
                     <input type="text" class="modal-input" id="theme-input" name="themeInput">
                     <br>
                     <label for="text-input">Text</label>
-                    <input type="text" class="modal-input" id="text-input" name="textInput">
+                    <textarea name="textInput" id="text" cols="30" rows="10"></textarea>
                     <button id="add" type='submit'>Добавить</button>
                 </form>
             </div>
@@ -73,12 +84,13 @@ function showAddModal () {
 
 
         form.addEventListener ('submit', async (e)=> {
-
+            
             let themeInpVal = form.themeInput.value
             let textInpVal = form.textInput.value
             let d = new Date()
             d = d.getHours() + ':' +d.getMinutes() + ', ' + d.getFullYear()+'.'+d.getMonth()
             try {
+                
                 await fetch ('http://localhost:5000/api/cards/add', {
                 method: 'POST',
                 headers: {
@@ -92,16 +104,16 @@ function showAddModal () {
                     date: d
                 }),
             })
+            document.location = 'http://localhost:5000'
             } catch (error) {
                 console.log(error);
-            }            
+            }    
+            
+            
         })
 
-
-
-
-
 }
+
 
 
 
@@ -124,4 +136,10 @@ async function deletePosts () {
 
     
 }
+
+const loginBtn = document.querySelector('#loginBtn')
+
+loginBtn.addEventListener('click', ()=>{
+    document.location = 'http://localhost:5000/api/auth'
+})
 

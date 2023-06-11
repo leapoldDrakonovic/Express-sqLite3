@@ -1,0 +1,54 @@
+
+/* MODAL FRAME */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+  }
+  .modal-add-wrapper {
+    margin: 50px auto;
+    padding: 10px 30px;
+    background-color: #fff;
+    width: 600px;
+    height: 300px;
+    border-radius: 10px;
+  }
+  .modal-input {
+    outline: none;
+    background-color: rgb(244, 244, 244);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    width: 100%;
+  }
+
+  .modal-input:focus {
+    border: 1px solid green;
+    background-color: rgba(186, 186, 229, 0.495);
+  }
+
+  .modal #text-input {
+    height: 70px;
+  }
+  input[type=text] {
+    word-wrap: break-word;
+    word-break: break-all;
+  }/*# sourceMappingURL=style.css.map */
+
+  .modal-form>textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: rgb(244, 244, 244);
+  }
+
+  .modal-form>textarea:focus {
+    border: 1px solid green;
+  }
+  
+  /* End MODAL */
+  
