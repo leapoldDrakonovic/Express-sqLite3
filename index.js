@@ -12,7 +12,6 @@ const router = require ('./router/router.js')
 const static = path.join(__dirname, '/client')
 const css = path.join(__dirname, 'client', 'style')
 
-const main_page = path.join(__dirname, 'client', 'index.html')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -40,20 +39,5 @@ async function start () {
     }
 }
 start()
-
-
-/*
-// Send main page
-app.get('/', router)
-// Work with cards
-app.get('/api/cards', router)
-app.post('/api/cards/add', router)
-app.delete('/api/cards', router)
-*/ 
-
-
-
-
-
 
 

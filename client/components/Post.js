@@ -38,10 +38,10 @@ class Post {
             <div class="modal-content">
                 <button class="modal-x-btn" id="auth-x-btn">X</button>
                 <form class="modal-form" id="modalForm">
-                    <label for="title-input">Theme</label>
+                    <label for="theme-input">Theme</label>
                     <input type="text" class="modal-input" id="theme-input" name="themeInput">
                     <br>
-                    <label for="text-input">Text</label>
+                    <label for="text">Text</label>
                     <textarea name="textInput" id="text" cols="30" rows="10"></textarea>
                     <button id="add" type='submit'>Добавить</button>
                 </form>
@@ -102,7 +102,7 @@ class Post {
         }
     }
 
-    
+
 }
 
 export {Post}
