@@ -17,11 +17,23 @@ class authController {
                 
                 })      
             })
+            .then(req=>{
+                    if (req.status === 200) {
+                        window.location.href = '/'
+                    } else {
+                        alert(`Something went wrong ${req.status}`)
+                    }
+                }   
+            )
+            .catch(error=>console.log(error))
         } catch (error) {
             console.log(error);
         }
     }
 
+
+
+    
     sendRegistation = async ({username, password}) => {
         try {
             await fetch ('http://localhost:5000/api/auth/registration', {
@@ -37,12 +49,14 @@ class authController {
                 
                 })      
             })
+            .then(req=>console.log(req.status))
+
         } catch (error) {
             console.log(error);
         }
     }
 
-    
+
 
 }
 

@@ -24,17 +24,12 @@ class userController {
                     console.error(err);
                     return res.status(500).json({ error: 'Internal server error' });
                 }
-    
                 if (!result) {
-                   
                     return res.status(401).json({ error: 'Invalid username or password' });
-                    
                 }
-    
                 // Generate a JWT token
                 const token = jwt.sign({ username: row.username }, 'secretkey');
-    
-                
+                res.json({status: 'succsess'})
                 res.json({ token });
                 });
             });
@@ -61,7 +56,6 @@ class userController {
                     console.error(err);
                     return res.status(500).json({ error: 'Internal server error' });
                   }
-                  
                   res.status(201).json({ message: 'User created successfully' });
                 });
               });
