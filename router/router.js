@@ -16,8 +16,8 @@ router.use('/api/cards', postRouter)
 router.use('/api/cards', postRouter)
 router.use('/api/cards/add', postRouter)
 
-router.use('/api/auth/login', userRouter) 
-router.use('/api/auth/registration', userRouter) 
+router.use('/api/auth', userRouter) 
+router.use('/api/auth', userRouter) 
 
 
 

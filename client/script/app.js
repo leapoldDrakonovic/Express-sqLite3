@@ -1,6 +1,5 @@
 import {Post} from "../components/Post.js"
-import { authController } from "./auth.controller.js"
-
+import authController from './auth.controller.js'
 
 const postContentContainer = document.querySelector('.post-content')
 if (postContentContainer) {
@@ -26,11 +25,25 @@ const loginInp = document.querySelector('#login-inp')
 const passInp = document.querySelector('#pass-inp')
 const authBtn = document.querySelector('#authorization-btn')
 if (authBtn) {
-    authBtn.addEventListener('click', () => () => {new authController(loginInp.value, passInp.value).sendLogin(); loginInp.value=''; passInp.value=''})
+    authBtn.addEventListener('click', ()=>{
+        authController.sendLogin({
+            username: loginInp.value,
+            password: passInp.value
+        })
+        loginInp.value = ''
+        passInp.value = ''
+    })
 }
 const registrationBtn = document.querySelector('#registration-btn')
 if (registrationBtn) {
-    registrationBtn.addEventListener('click', () => {new authController(loginInp.value, passInp.value).sendRegistation(); loginInp.value=''; passInp.value=''})
+    registrationBtn.addEventListener('click', () => {
+        authController.sendRegistation({
+            username: loginInp.value,
+            password: passInp.value
+        })
+        loginInp.value = ''
+        passInp.value = ''
+    })
 }
 
 

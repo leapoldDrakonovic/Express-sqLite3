@@ -1,11 +1,8 @@
 class authController {
 
-    constructor (login, password) {
-        this._login = login
-        this._password = password
-    }
 
-    sendLogin = async (req,res) => {
+
+    sendLogin = async ({username, password}) => {
         try {
             await fetch ('http://localhost:5000/api/auth/login', {
                 method: 'POST',
@@ -15,18 +12,17 @@ class authController {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    username: this._login,
-                    password: this._password
+                    username: username,
+                    password: password
                 
                 })      
             })
-            console.log(JSON.parse(req.body));
         } catch (error) {
             console.log(error);
         }
     }
 
-    sendRegistation = async () => {
+    sendRegistation = async ({username, password}) => {
         try {
             await fetch ('http://localhost:5000/api/auth/registration', {
                 method: 'POST',
@@ -36,8 +32,8 @@ class authController {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    username: this._login,
-                    password: this._password
+                    username: username,
+                    password: password
                 
                 })      
             })
@@ -46,7 +42,9 @@ class authController {
         }
     }
 
+    
+
 }
 
 
-export {authController}
+export default new authController()
