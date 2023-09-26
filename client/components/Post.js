@@ -29,7 +29,7 @@ class Post {
         }
     }
 
-    showAddModal = () => {
+    showAddPostModal = () => {
         const body = document.getElementsByTagName('body')[0];
         const modalWindow = document.createElement('div');
         modalWindow.classList = 'modal';
