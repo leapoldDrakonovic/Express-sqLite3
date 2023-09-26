@@ -2,56 +2,18 @@
 const {Router}  = require ('express');
 const path = require('path')
 const router = new Router();
-
+const postRouter = require('./postRouter.js')
 
 // html path
 const main_page = path.join(__dirname, '../', 'client', 'index.html')
 const auth_page = path.join(__dirname, '../', 'client', 'pages', 'authPage.html')
 const profile_page = path.join(__dirname, '../', 'client', 'pages', 'profilePage.html')
 
-
-//  Sqlite connect
-const sqlite = require ('sqlite3').verbose()
-const db_name = path.join(__dirname,'../', 'data', 'apptest.db')
-const usdb_name = path.join(__dirname,'../', 'data', 'users.db')
-
-
 // Auth instr
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// DataBase run
-const database = new sqlite.Database(db_name, err=> {  
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('Post database started');
-        database.run(`CREATE TABLE IF NOT EXISTS posts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            theme text,
-            dsc text,
-            date text
-        )`, (err) => {
-            if (err) console.log(err); 
-        })
-    }
-})
 
-
-const userDataBase = new sqlite.Database (usdb_name, err=> {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log('User database started');
-        userDataBase.run (`CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name text,
-            password text
-        )`, (err) => {
-            if (err) console.log(err); 
-        })
-    }
-})
 
 // ROUTES
 
@@ -64,43 +26,9 @@ router.get('/profile', (req, res)=> {
     res.sendFile(profile_page)
 })
 
-// Get all cards
-router.get('/api/cards', (req, res, next) => {
-    var sql = "select * from posts"
-    var params = []
-    database.all(sql, params, (err, rows) => {
-        if (err) {
-          res.status(400).json({"error":err.message});
-          return;
-        }
-        res.json({
-            "message":"success",
-            "data":rows
-        })
-      });
-})
-
-// Delete card route
-router.delete('/api/cards', (req, res) => {
-    var deletePosts = 'DELETE FROM posts';
-    database.run(deletePosts, (err) => {
-        if (!err) return
-        console.log(err);
-    })
-})
-
-// Add card route
-router.post('/api/cards/add', (req, res, next) => {
-    try {    
-        var insert = 'INSERT INTO posts (theme, dsc, date) VALUES (?,?,?)'
-        database.run(insert, [req.body.theme, req.body.text, req.body.date])
-        res.status;
-        next()
-         
-    } catch (error) {
-        console.log(error);
-    }
-})
+router.use('/api/cards', postRouter)
+router.use('/api/cards', postRouter)
+router.use('/api/cards/add', postRouter)
 
 router.get('/api/auth', (req, res) => {
     try {
