@@ -49,3 +49,7 @@
 .auth-page-wrapper-content>input:focus {
     border: 1px solid green;
 }
+
+.auth-link {
+    margin-bottom: 15px;
+}

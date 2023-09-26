@@ -33,7 +33,7 @@ class authController {
 
 
 
-    
+
     sendRegistation = async ({username, password}) => {
         try {
             await fetch ('http://localhost:5000/api/auth/registration', {
@@ -56,6 +56,10 @@ class authController {
         }
     }
 
+
+    renderMessage = () => {
+        return 1
+    }
 
 
 }
