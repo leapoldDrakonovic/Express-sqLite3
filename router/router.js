@@ -8,6 +8,7 @@ const userRouter = require('./userRouter.js')
 // html path
 const main_page = path.join(__dirname, '../', 'client', 'index.html')
 const auth_page = path.join(__dirname, '../', 'client', 'pages', 'authPage.html')
+const registration_page = path.join(__dirname, '../', 'client', 'pages', 'registrationPage.html')
 const profile_page = path.join(__dirname, '../', 'client', 'pages', 'profilePage.html')
 
 
@@ -40,6 +41,14 @@ router.get('/profile', (req, res)=> {
 router.get('/api/auth', (req, res) => {
     try {
         res.sendFile(auth_page)
+    } catch (error) {
+        console.log(error);
+    }
+}) 
+
+router.get('/api/registration', (req, res) => {
+    try {
+        res.sendFile(registration_page)
     } catch (error) {
         console.log(error);
     }
