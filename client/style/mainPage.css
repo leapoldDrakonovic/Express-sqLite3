@@ -46,6 +46,8 @@
   .post-title {
     margin-bottom: 6px;
     font-size: 20px;
+    overflow: hidden;
+    width: 90%;
   
   }
   

@@ -14,9 +14,11 @@
     <header class="header">
         <nav class="header-navigation">
             <div class="logo">MyBLOG</div>
-            <button class="blue-btn" id="loginBtn">Login</button>
-            <button class="blue-btn" id="post-add">Добавить</button>
-            <button class="red-btn" id="post-delete">Удалить все</button>
+            <a href="/api/auth">
+                <button class="blue-btn" id="loginBtn">Login</button>
+            </a>
+            <button class="blue-btn" id="post-add">Add</button>
+            <button class="red-btn" id="post-delete">Delete All</button>
         </nav>
 
     </header>
@@ -31,15 +33,15 @@
         </div>
         <div class="link-wrapper">
             <ul class="link-wrapper-list">
-                <li class="link-wrapper-list-item">Posts</li>
-                <li class="link-wrapper-list-item">Profile</li>
-                <li class="link-wrapper-list-item">Exit</li>
+                <li class="link-wrapper-list-item"><a href="/">Posts</a></li>
+                <li class="link-wrapper-list-item"><a href="/profile">Profile</a></li>
+                <li class="link-wrapper-list-item"><a>Exit</a></li>
 
             </ul>
         </div>
     </div>
 
     
-    <script src="./script/app.js"></script>
+    <script type="module" src="./script/app.js"></script>
 </body>
 </html>

@@ -20,14 +20,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(static))
 app.use(express.static(css))
 
-// ROUTES
-
 // CORS backway
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     next();
   });
-
 
 // Use Router
 app.use(router)

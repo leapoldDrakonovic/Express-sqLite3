@@ -40,7 +40,7 @@ async function sendLogin (req,res) {
     }
 }
 
-async function sendRegistation (req) {
+async function sendRegistation () {
     try {
         await fetch ('http://localhost:5000/api/auth/registration', {
             method: 'POST',
