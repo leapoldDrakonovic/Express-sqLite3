@@ -10,20 +10,31 @@ const main_page = path.join(__dirname, '../', 'client', 'index.html')
 const auth_page = path.join(__dirname, '../', 'client', 'pages', 'authPage.html')
 const profile_page = path.join(__dirname, '../', 'client', 'pages', 'profilePage.html')
 
-// Auth instr
+
+router.use('/api/cards', postRouter)
+router.use('/api/cards', postRouter)
+router.use('/api/cards/add', postRouter)
+
+router.use('/api/auth/login', userRouter) 
+router.use('/api/auth/registration', userRouter) 
 
 
-
-
-// ROUTES
 
 // Send main HTML
 router.get('/api', (req, res)=> {
-    res.sendFile(main_page)
+    try {
+        res.sendFile(main_page)
+    } catch (error) {
+        console.error(error)
+    }
 })
 
 router.get('/profile', (req, res)=> {
-    res.sendFile(profile_page)
+    try {
+        res.sendFile(profile_page)
+    } catch (error) {
+        console.error(error);
+    }
 })
 
 router.get('/api/auth', (req, res) => {
@@ -34,13 +45,6 @@ router.get('/api/auth', (req, res) => {
     }
 }) 
 
-
-router.use('/api/cards', postRouter)
-router.use('/api/cards', postRouter)
-router.use('/api/cards/add', postRouter)
-
-router.use('/api/auth/login', userRouter) 
-router.use('/api/auth/registration', userRouter) 
 
 
 
