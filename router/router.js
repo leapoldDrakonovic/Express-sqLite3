@@ -38,7 +38,7 @@ router.get('/profile', (req, res)=> {
     }
 })
 
-router.get('/api/auth', (req, res) => {
+router.get('/auth', (req, res) => {
     try {
         res.sendFile(auth_page)
     } catch (error) {
@@ -46,7 +46,7 @@ router.get('/api/auth', (req, res) => {
     }
 }) 
 
-router.get('/api/registration', (req, res) => {
+router.get('/registration', (req, res) => {
     try {
         res.sendFile(registration_page)
     } catch (error) {
