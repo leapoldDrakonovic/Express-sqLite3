@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
-    <title>My Blog</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <title>Blog-Profile</title>
 </head>
 <body>
-
-
-
     <header class="header">
         <nav class="header-navigation">
             <div class="logo">MyBLOG</div>
-            <a href="/auth">
+            <a href="/api/auth">
                 <button class="blue-btn" id="loginBtn">Login</button>
             </a>
             <button class="blue-btn" id="post-add">Add</button>
@@ -26,20 +23,21 @@
        
 
         <div class="posts-wrapper">
-            <div class="post-wrapper-title">POSTS</div>
-            <div class="post-content">
+            <div class="post-wrapper-title">PROFILE</div>
+            <div class="content">
+                This is a profile page
             </div>
         </div>
         <div class="link-wrapper">
             <ul class="link-wrapper-list">
                 <li class="link-wrapper-list-item"><a href="/">Posts</a></li>
                 <li class="link-wrapper-list-item"><a href="/profile">Profile</a></li>
+                <li class="link-wrapper-list-item"><a>Exit</a></li>
 
             </ul>
         </div>
     </div>
 
-    
     <script type="module" src="./script/app.js"></script>
 </body>
 </html>

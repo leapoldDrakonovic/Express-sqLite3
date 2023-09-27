@@ -12,7 +12,6 @@ const router = require ('./router/router.js')
 const static = path.join(__dirname, '/client')
 const css = path.join(__dirname, 'client', 'style')
 
-const main_page = path.join(__dirname, 'client', 'index.html')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -20,14 +19,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(static))
 app.use(express.static(css))
 
-// ROUTES
-
 // CORS backway
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     next();
   });
-
 
 // Use Router
 app.use(router)
@@ -43,20 +39,5 @@ async function start () {
     }
 }
 start()
-
-
-/*
-// Send main page
-app.get('/', router)
-// Work with cards
-app.get('/api/cards', router)
-app.post('/api/cards/add', router)
-app.delete('/api/cards', router)
-*/ 
-
-
-
-
-
 
 
